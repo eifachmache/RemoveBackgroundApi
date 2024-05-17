@@ -4,6 +4,9 @@
 # run image
 # docker run -p 8000:8000 removebackgroundapi
 
+# create deployable image
+# docker save -o rembgapiimage.tar removebackgroundapi:latest
+
 FROM python:3.11-slim
 
 WORKDIR /app
