@@ -1,14 +1,20 @@
-FROM python:3.11.6-bookworm
-# FROM python:3.10-slim
+# Build image
+# docker build -t removebackgroundapi .
+#
+# run image
+# docker run -p 8000:8000 removebackgroundapi
+
+FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Copy the local code to the Docker container
+COPY . /app
 
-RUN pip install -r requirements.txt --no-cache-dir
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src .
+# Inform Docker that the container listens on the specified network ports at runtime.
+EXPOSE 8000
 
-COPY embeddings embeddings
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000"]

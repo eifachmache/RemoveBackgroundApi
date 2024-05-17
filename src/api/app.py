@@ -24,8 +24,10 @@ def authorize(
 
 
 # Start your server using:
-# fastapi dev .\src\app.py
-# uvicorn your_script_name:app --reload
+# fastapi dev .\src\api\app.py
+# (uvicorn your_script_name:app --reload)
+
+# pip freeze > requirements.txt
 app = FastAPI(dependencies=[Depends(authorize)])
 
 

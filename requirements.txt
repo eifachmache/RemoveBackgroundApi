@@ -1,0 +1,6 @@
+# pip freeze > requirements.txt
+fastapi==0.103.2
+python-dotenv==1.0.1
+uvicorn[standard]==0.29.0
+rembg==2.0.56
+python-multipart==0.0.9
